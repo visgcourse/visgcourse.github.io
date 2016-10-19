@@ -14,8 +14,12 @@ int main()
 		printf("minus");
 		a = -1 * a;      //Çó¾ø¶ÔÖµ
 	}
+	else if (a == 0)
+	{
+		printf("zero");
+	}
 	
-	while (a)
+	while (a > 0)
 	{
 		int res = a % 10;
 		a = a / 10;
@@ -38,4 +42,3 @@ int main()
 	
     return 0;
 }
-
