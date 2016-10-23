@@ -5,11 +5,54 @@
     <title>C语言程序设计与数据结构</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../../stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" type="text/css" href="../../stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="../../stylesheets/github-light.css" media="screen">
+	<script src="../../qrgen.js"></script>
+	<!-- <script src="https://gera2ld.github.io/jsqrgen/qrgen.js"></script> -->
+	<style type="text/css">
+		my_div_style="width: 66px;position: fixed;bottom: 20px;right: 25px;font-size: 0;line-height: 0;z-index: 100;"
+	  </style>
   </head>
   <body>
+	  
+		<!-- 添加了将链接显示为二维码的程序 用于在直接使用投影的情况下下载题目 -->
+	  <script type="text/javascript">
+		function addQR(id,block)
+		{
+			var options = {
+			  cellSize: (5,5),
+			  data: id.href
+			};
+			options.logo={};
+			options.logo.text="ViSG";
+			options.logo.color="#2c74af";
+			const canvas = qrgen.canvas(options);
+			block=document.getElementById(block);
+			block.appendChild(canvas);
+			show(block);
+		};
+		function rmQR(id,block)
+		{
+			block=document.getElementById(block);
+			hide(block);
+			block.removeChild(block.childNodes[0]);
+		};
+		function show(n)
+		{
+			<!-- 将二维码显示在页面右下角 -->
+			n.style.position="fixed";
+			n.style.right="25px";
+			n.style.bottom="25px";
+			n.style.display="inline-block";
+		}
+		function hide(n)
+		{
+			n.style.display="none";
+		}
+	  </script>
+	  
+  
     <section class="page-header">
       <h1 class="project-name">C语言程序设计与数据结构</h1>
       <h2 class="project-tagline"></h2>
@@ -29,7 +72,8 @@
       <ul>
 		<li>
           <p>
-            <strong><a href="C1.docx">Assignment 1</a> </strong>(2016-10-11)
+            <strong><a href="C1.docx" onmouseover="addQR(this,'qr_div1')" onmouseout="rmQR(this,'qr_div1')">Assignment 1</a> </strong>(2016-10-11) 
+			<div id="qr_div1"></div>
           </p>
           <ul>
             <li>
@@ -45,7 +89,8 @@
         </li>
         <li>
           <p>
-            <strong><a href="C2.docx">Assignment 2</a> </strong>(2016-10-18)
+            <strong><a href="C2.docx" onmouseover="addQR(this,'qr_div2')" onmouseout="rmQR(this,'qr_div2')">Assignment 2</a> </strong>(2016-10-18)
+			<div id="qr_div2"></div>
           </p>
           <ul>
             <li>
@@ -57,12 +102,25 @@
 				<a href = "C2_A2.c">C2_A2</a>
 			</li>
 		  </ul>
-	
+		  <ul> <p></p> </ul>
+		</li>
+		<li>
           <p>
-		  <li>
-            <strong><a href="C3.docx">Assignment 3</a> </strong>(2016-10-25)
-     	
-	  </p>
+            <strong><a href="C3.docx" onmouseover="addQR(this,'qr_div3')" onmouseout="rmQR(this,'qr_div3')">Assignment 3</a> </strong>(2016-10-25)
+			<div id="qr_div3"></div>
+		  </p>
+		  <!-- <ul>
+            <li>
+				<a href = "C3_A1.c">C3_A1</a>
+			</li>
+          </ul>
+		  <ul>
+			<li>
+				<a href = "C3_A2.c">C3_A2</a>
+			</li>
+		  </ul> 
+		  <ul> <p></p> </ul> -->
+		</li>
 	
       </ul>
       <footer class="site-footer">
@@ -72,6 +130,6 @@
 
     </section>
 
-  
   </body>
+  
 </html>
