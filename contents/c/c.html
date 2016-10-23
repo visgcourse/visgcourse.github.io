@@ -10,54 +10,19 @@
     <link rel="stylesheet" type="text/css" href="../../stylesheets/github-light.css" media="screen">
 	<script src="../../qrgen.js"></script>
 	<!-- <script src="https://gera2ld.github.io/jsqrgen/qrgen.js"></script> -->
+	<script src="../../qr_page.js"></script>
 	<style type="text/css">
 		my_div_style="width: 66px;position: fixed;bottom: 20px;right: 25px;font-size: 0;line-height: 0;z-index: 100;"
 	  </style>
   </head>
-  <body>
-	  
-		<!-- 添加了将链接显示为二维码的程序 用于在直接使用投影的情况下下载题目 -->
-	  <script type="text/javascript">
-		function addQR(id,block)
-		{
-			var options = {
-			  cellSize: (5,5),
-			  data: id.href
-			};
-			options.logo={};
-			options.logo.text="ViSG";
-			options.logo.color="#2c74af";
-			const canvas = qrgen.canvas(options);
-			block=document.getElementById(block);
-			block.appendChild(canvas);
-			show(block);
-		};
-		function rmQR(id,block)
-		{
-			block=document.getElementById(block);
-			hide(block);
-			block.removeChild(block.childNodes[0]);
-		};
-		function show(n)
-		{
-			<!-- 将二维码显示在页面右下角 -->
-			n.style.position="fixed";
-			n.style.right="25px";
-			n.style.bottom="25px";
-			n.style.display="inline-block";
-		}
-		function hide(n)
-		{
-			n.style.display="none";
-		}
-	  </script>
-	  
+  <body>  
   
     <section class="page-header">
       <h1 class="project-name">C语言程序设计与数据结构</h1>
       <h2 class="project-tagline"></h2>
     </section>
 
+	<div id="qr_div"></div>
     <section class="main-content">
       <h3>课程信息</h3>
       <p>授课时间：2016年秋</p>
@@ -72,8 +37,7 @@
       <ul>
 		<li>
           <p>
-            <strong><a href="C1.docx" onmouseover="addQR(this,'qr_div1')" onmouseout="rmQR(this,'qr_div1')">Assignment 1</a> </strong>(2016-10-11) 
-			<div id="qr_div1"></div>
+            <strong><a href="C1.docx" onmouseover="addQR(this)" onmouseout="rmQR(this)">Assignment 1</a> </strong>(2016-10-11) 
           </p>
           <ul>
             <li>
@@ -89,8 +53,7 @@
         </li>
         <li>
           <p>
-            <strong><a href="C2.docx" onmouseover="addQR(this,'qr_div2')" onmouseout="rmQR(this,'qr_div2')">Assignment 2</a> </strong>(2016-10-18)
-			<div id="qr_div2"></div>
+            <strong><a href="C2.docx" onmouseover="addQR(this)" onmouseout="rmQR(this)">Assignment 2</a> </strong>(2016-10-18)
           </p>
           <ul>
             <li>
@@ -106,8 +69,7 @@
 		</li>
 		<li>
           <p>
-            <strong><a href="C3.docx" onmouseover="addQR(this,'qr_div3')" onmouseout="rmQR(this,'qr_div3')">Assignment 3</a> </strong>(2016-10-25)
-			<div id="qr_div3"></div>
+            <strong><a href="C3.docx" onmouseover="addQR(this)" onmouseout="rmQR(this)">Assignment 3</a> </strong>(2016-10-25)
 		  </p>
 		  <!-- <ul>
             <li>
