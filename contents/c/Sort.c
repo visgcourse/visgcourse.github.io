@@ -1,6 +1,8 @@
 // read more and write more,you'll be the god/godness of the code
 // there are lots of tutorials(including source code) about Sort on the internet
 // I would appreciate it if you find any bug or have any advice about the program ,just contact 121180088@smail.nju.edu.cn
+
+
 #include "stdafx.h"
 #include <stdlib.h>
 #define MAX_NUM 10
