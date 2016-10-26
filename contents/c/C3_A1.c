@@ -12,7 +12,7 @@ int main()
 	return 0;
 }
 
-//从1开始到2016 最常用的思路
+//basic method
 void version_1()
 {
 	int count = 0;
@@ -27,7 +27,7 @@ void version_1()
 	printf("%d\n", count);
 }
 
-//因为闰年一定是4的倍数,可以加快运行速度
+//simple acceleration
 void version_2()
 {
 	int count = 0;
