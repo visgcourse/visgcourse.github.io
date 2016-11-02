@@ -1,132 +1,230 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>C语言程序设计与数据结构</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../../stylesheets/normalize.css" media="screen">
-	<link href='../../stylesheets/googleapi_font.css' rel='stylesheet' type='text/css'>
+    <link href='../../stylesheets/googleapi_font.css' rel='stylesheet' type='text/css'>
     <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" type="text/css" href="../../stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="../../stylesheets/github-light.css" media="screen">
-	<script src="../../qrgen.js"></script>
-	<!-- <script src="https://gera2ld.github.io/jsqrgen/qrgen.js"></script> -->
-	<script src="../../qr_page.js"></script>
-	<style type="text/css">
-		my_div_style="width: 66px;position: fixed;bottom: 20px;right: 25px;font-size: 0;line-height: 0;z-index: 100;"
-	  </style>
-  </head>
-  <body>  
-  
-    <div id="divPiao" style="background-color:darkblue;  opacity: 0.8; width:100%; height:auto; position: fixed;">
-		<p style="color:#FFFFFF;text-align:center; font-size:20px">公告：11月15号的上机课进行第一次大作业检查，大作业见
-		<strong><a href="C4.docx" onmouseover="addQR(this)" onmouseout="rmQR(this)">Assignment 4</a> </strong>
-		的后半段。 (2016-11-01)
-		</p>
-    </div>
-    <section class="page-header">
-	  <p style="height:30px;"></p>
-      <h1 class="project-name">C语言程序设计与数据结构</h1>
-      <h2 class="project-tagline"></h2>
-    </section>
-	<div id="qr_div"></div>
-    <section class="main-content">
-      <h3>课程信息</h3>
-      <p>授课时间：2016年秋</p>
-      <p>授课老师：周余(nackzhou@nju.edu.cn)	  
-      <p>&nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;   王自强(zqwanglx@nju.edu.cn)
-      <p>&nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;   赵康僆(zhaokanglian@nju.edu.cn)
-      <p>助教：贝思远、刘鹏、邱炜彬、苏统奎(121180088@smail.nju.edu.cn)</p>
-      <p>备注：本站内容为C语言第二次上机课以后的习题以及答案，点击对应Assignment即可下载</p>    
-	<h3>阅读材料</h3>
-      <p><a href="http://mindhacks.cn/2009/05/17/seven-years-in-nju/">我在南大的七年</a></p>
-      <p><a href="https://book.douban.com/subject/5375620/">失控</a></p>	    
-      <h3>上机题目</h3>
-      <ul>
-		<li>
-          <p>
-            <strong><a href="C1.docx" onmouseover="addQR(this)" onmouseout="rmQR(this)">Assignment 1</a> </strong>(2016-10-11) 
-          </p>
-          <ul>
-            <li>
-              <a href="C1_A1.c">C1_A1</a> 
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <a href="C1_A2.c">C1_A2</a> 
-            </li>
-		  </ul>
-          <ul> <p></p> </ul>
+    <script src="../../qrgen.js"></script>
+    <!-- <script src="https://gera2ld.github.io/jsqrgen/qrgen.js"></script> -->
+    <script src="../../qr_page.js"></script>
+    <style>
+        .modalDialog {
+            position: fixed;
+            font-family: Arial, Helvetica, sans-serif;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 99999;
+            opacity:0;
+            -webkit-transition: opacity 200ms ease-in;
+            -moz-transition: opacity 200ms ease-in;
+            transition: opacity 200ms ease-in;
+            pointer-events: none;
+
+            display: -webkit-box;
+            -webkit-box-orient: horizontal;
+            -webkit-box-pack: center;
+            -webkit-box-align: center;
+
+            display: -moz-box;
+            -moz-box-orient: horizontal;
+            -moz-box-pack: center;
+            -moz-box-align: center;
+
+            display: -o-box;
+            -o-box-orient: horizontal;
+            -o-box-pack: center;
+            -o-box-align: center;
+
+            display: -ms-box;
+            -ms-box-orient: horizontal;
+            -ms-box-pack: center;
+            -ms-box-align: center;
+
+            display: box;
+            box-orient: horizontal;
+            box-pack: center;
+            box-align: center;
+        }
+
+        .modalDialog:target {
+            opacity:1;
+            pointer-events: auto;
+        }
+
+        .modalDialog > div {
+            width: auto;
+            height:auto;
+            display:inline-block;
+            position: relative;
+            margin: 0 auto;
+            padding: 12px;
+            border-radius: 2px;
+            background: #fff;
+            background: -moz-linear-gradient(#fff, #bbb);
+            background: -webkit-linear-gradient(#fff, #bbb);
+            background: -o-linear-gradient(#fff, #bbb);
+        }
+
+        .close {
+            background: #606061;
+            color: #FFFFFF;
+            line-height: 25px;
+            position: absolute;
+            right: -12px;
+            text-align: center;
+            top: -10px;
+            width: 24px;
+            text-decoration: none;
+            font-weight: bold;
+            -webkit-border-radius: 12px;
+            -moz-border-radius: 12px;
+            border-radius: 12px;
+            -moz-box-shadow: 1px 1px 3px #000;
+            -webkit-box-shadow: 1px 1px 3px #000;
+            box-shadow: 1px 1px 3px #000;
+        }
+
+        .close:hover { background: #00d9ff; }
+    </style>
+</head>
+<body>
+
+<div id="divPiao" style="background-color:darkblue;  opacity: 0.8; width:100%; height:auto; position: fixed;">
+    <p style="color:#FFFFFF;text-align:center; font-size:20px">公告：11月15号的上机课进行第一次大作业检查，大作业见
+        <strong><a href="C4.docx" onmouseover="addQR(this)" onmouseout="rmQR(this)">Assignment 4</a> </strong>
+        的后半段。 (2016-11-01)
+    </p>
+</div>
+<section class="page-header">
+    <p style="height:30px;"></p>
+    <h1 class="project-name">C语言程序设计与数据结构</h1>
+    <h2 class="project-tagline"></h2>
+</section>
+<div id="qr_div"></div>
+<section class="main-content">
+    <h3>课程信息</h3>
+    <p>授课时间：2016年秋</p>
+    <p>授课老师：</p>
+    <blockquote>
+        <a href="http://ese.nju.edu.cn/faculty.php?name=zhouyu&lang=cn">周余</a>
+        (nackzhou@nju.edu.cn)
+    </blockquote>
+    <blockquote>
+        王自强 (zqwanglx@nju.edu.cn)
+    </blockquote>
+    <blockquote>
+        <a href="http://ese.nju.edu.cn/faculty.php?name=zhaokanglian&lang=cn">赵康僆</a>
+        (zhaokanglian@nju.edu.cn)
+    </blockquote>
+    <p>助教：贝思远、刘鹏、邱炜彬、苏统奎(<a href="mailto:121180088@smail.nju.edu.cn" )>121180088@smail.nju.edu.cn</a>)</p>
+    <p>备注：本站内容为C语言第二次上机课以后的习题以及答案，点击对应Assignment即可下载</p>
+    <h3>阅读材料</h3>
+    <p><a href="http://mindhacks.cn/2009/05/17/seven-years-in-nju/">我在南大的七年</a></p>
+    <p><a href="https://book.douban.com/subject/5375620/">失控</a></p>
+    <h3>上机题目</h3>
+    <ul>
+        <li>
+            <p>
+                <strong><a href="C1.docx" onmouseover="addQR(this)" onmouseout="rmQR(this)">Assignment 1</a> </strong>(2016-10-11)
+            </p>
+            <ul>
+                <li>
+                    <a href="C1_A1.c">C1_A1</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="C1_A2.c">C1_A2</a>
+                </li>
+            </ul>
+            <ul><p></p></ul>
         </li>
         <li>
-          <p>
-            <strong><a href="C2.docx" onmouseover="addQR(this)" onmouseout="rmQR(this)">Assignment 2</a> </strong>(2016-10-18)
-          </p>
-          <ul>
-            <li>
-				<a href = "C2_A1.c">C2_A1</a>
-			</li>
-          </ul>
-		  <ul>
-			<li>
-				<a href = "C2_A2.c">C2_A2</a>
-			</li>
-		  </ul>
-		  <ul> <p></p> </ul>
-		</li>
-		<li>
-          <p>
-            <strong><a href="C3.docx" onmouseover="addQR(this)" onmouseout="rmQR(this)">Assignment 3</a> </strong>(2016-10-25)
-		  </p>
-		  <ul>
-            <li>
-				<a href = "C3_A1.c">C3_A1</a>
-			</li>
-          </ul>
-		  <ul>
-			<li>
-				<a href = "C3_A2.c">C3_A2</a>
-			</li>
-		  </ul> 
-		  <ul>
-			<li>
-				<a href = "Sort.c">Sort</a>
-			</li>
-		  </ul> 
-		  <ul> <p></p> </ul>
-		</li>
-	      <li>
-          <p>
-            <strong><a href="C4.docx" onmouseover="addQR(this)" onmouseout="rmQR(this)">Assignment 4</a> </strong>(2016-11-01)
-		  </p>
-		  <ul>
-            <li>
-				<a href = "C4_A1.c">C4_A1</a>
-			</li>
-          </ul>
-		  <ul>
-			<li>
-				<a href = "C4_A2.c">C4_A2</a>
-			</li>
-		  </ul> 
-		  <ul>
-			<li>
-				<a href="C4_video.webm">大作业视频示例1</a>
-			</li>
-		  </ul> 
-		  
-		  <ul>  <p></p> </ul> 
-		</li>
-	
-      </ul>
-      <footer class="site-footer">
+            <p>
+                <strong><a href="C2.docx" onmouseover="addQR(this)" onmouseout="rmQR(this)">Assignment 2</a> </strong>(2016-10-18)
+            </p>
+            <ul>
+                <li>
+                    <a href="C2_A1.c">C2_A1</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="C2_A2.c">C2_A2</a>
+                </li>
+            </ul>
+            <ul><p></p></ul>
+        </li>
+        <li>
+            <p>
+                <strong><a href="C3.docx" onmouseover="addQR(this)" onmouseout="rmQR(this)">Assignment 3</a> </strong>(2016-10-25)
+            </p>
+            <ul>
+                <li>
+                    <a href="C3_A1.c">C3_A1</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="C3_A2.c">C3_A2</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="Sort.c">Sort</a>
+                </li>
+            </ul>
+            <ul><p></p></ul>
+        </li>
+        <li>
+            <p>
+                <strong><a href="C4.docx" onmouseover="addQR(this)" onmouseout="rmQR(this)">Assignment 4</a> </strong>(2016-11-01)
+            </p>
+            <ul>
+                <li>
+                    <a href="C4_A1.c">C4_A1</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="C4_A2.c">C4_A2</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="#C4_video_player">大作业效果视频示例</a>
+                </li>
+            </ul>
 
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
+            <ul><p></p></ul>
+        </li>
 
-    </section>
+    </ul>
 
-  </body>
-  
+    <footer class="site-footer">
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a
+                href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a
+                href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+    </footer>
+
+</section>
+<div id="C4_video_player" class="modalDialog">
+    <div>
+        <a href="#close" title="Close" class="close" onclick="player.pause()">X</a>
+        <video height="540px" id="player" src="C4_video.mp4" controls>您的浏览器不支持Html5视频播放</video>
+        <h2>第一次大作业效果<a href="C4_video.mp4">视频示例</a></h2>
+        <p>示例视频仅供参考，只要保证运行结果不出错，界面布局可以自行定义。</p>
+    </div>
+</div>
+</body>
+
 </html>
