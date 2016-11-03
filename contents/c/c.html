@@ -27,31 +27,9 @@
             -moz-transition: opacity 200ms ease-in;
             transition: opacity 200ms ease-in;
             pointer-events: none;
-
-            display: -webkit-box;
-            -webkit-box-orient: horizontal;
-            -webkit-box-pack: center;
-            -webkit-box-align: center;
-
-            display: -moz-box;
-            -moz-box-orient: horizontal;
-            -moz-box-pack: center;
-            -moz-box-align: center;
-
-            display: -o-box;
-            -o-box-orient: horizontal;
-            -o-box-pack: center;
-            -o-box-align: center;
-
-            display: -ms-box;
-            -ms-box-orient: horizontal;
-            -ms-box-pack: center;
-            -ms-box-align: center;
-
-            display: box;
-            box-orient: horizontal;
-            box-pack: center;
-            box-align: center;
+            padding-top:2%;
+            padding-bottom: 2%;
+            text-align: center;
         }
 
         .modalDialog:target {
@@ -60,12 +38,12 @@
         }
 
         .modalDialog > div {
-            width: auto;
+            width: 72%;
+            padding: 12px;
             height:auto;
             display:inline-block;
             position: relative;
             margin: 0 auto;
-            padding: 12px;
             border-radius: 2px;
             background: #fff;
             background: -moz-linear-gradient(#fff, #bbb);
@@ -220,7 +198,7 @@
 <div id="C4_video_player" class="modalDialog">
     <div>
         <a href="#close" title="Close" class="close" onclick="player.pause()">X</a>
-        <video height="540px" id="player" src="C4_video.mp4" controls>您的浏览器不支持Html5视频播放</video>
+        <video id="player" width="100%" src="C4_video.mp4" controls>您的浏览器不支持Html5视频播放</video>
         <h2>第一次大作业效果<a href="C4_video.mp4">视频示例</a></h2>
         <p>示例视频仅供参考，只要保证运行结果不出错，界面布局可以自行定义。</p>
     </div>
