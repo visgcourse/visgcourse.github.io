@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define f(x) (2 * pow(x, 3.0) - 4 * pow(x, 2.0) + 3 * x - 6)
+#define f(x) (2 * pow(x, 3.0) - 4 * pow(x, 2.0) + 3 * x - 7)
 //已知函数保持递增
 void version_1();
 void version_2();
